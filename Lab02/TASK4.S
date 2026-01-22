@@ -15,9 +15,10 @@ blt x7, x5, OuterLoop
 
 OuterLoop:
     bge x7, x5, Exit
+    li x29, 0
     blt x29, x6, InnerLoop
     InnerLoop:
-
+    
     slli x11, x29, 4
     add x12, x7, x29
     add x11, x10,x11  
