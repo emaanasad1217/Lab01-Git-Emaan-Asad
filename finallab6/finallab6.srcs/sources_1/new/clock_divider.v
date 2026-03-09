@@ -1,7 +1,6 @@
 
 `timescale 1ns / 1ps
-//Divides the 100 MHz Basys3 system clock down
-//  to a slow enable-pulse used by the FSM counter.
+
 
 module clock_divider #(
     parameter MAX_COUNT = 25_000_000
@@ -10,7 +9,7 @@ module clock_divider #(
     input  wire rst,
     output wire slow_clk
 );
-    // for enough register size 
+
     reg [$clog2(MAX_COUNT)-1 : 0] count;
     initial count = 0;
     always @(posedge clk) begin
@@ -24,6 +23,6 @@ module clock_divider #(
             end
         end
     end
-    // slow clk only high when reached max val
+    
     assign slow_clk = (count == MAX_COUNT - 1) ? 1'b1 : 1'b0;
 endmodule
