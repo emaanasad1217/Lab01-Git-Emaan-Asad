@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 module ALU_1bit (
-    input a,                // 1-bit from A
-    input b,                // 1-bit from B (already inverted if SUB)
-    input cin,              // Carry in
-    input [3:0] alucontrol, // Same control as top module
-    output reg result,      // 1-bit result
-    output reg cout         // Carry out (only used in ADD/SUB)
+    input a,               
+    input b,                
+    input cin,              
+    input [3:0] alucontrol, 
+    output reg result,      
+    output reg cout         
 );
     wire and_res = a & b;
     wire or_res  = a | b;
@@ -30,6 +30,6 @@ module ALU_1bit (
         else if (alucontrol == 4'b0010 || alucontrol == 4'b0110) // ADD or SUB
             result = fa_sum;
         else
-            result = 1'b0; // default (never used in normal operation)
+            result = 1'b0; 
     end
 endmodule
