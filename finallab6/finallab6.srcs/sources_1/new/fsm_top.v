@@ -38,14 +38,12 @@ module fsm_top #(
         .writeEnable(1'b0),
         .readEnable (1'b0),
         .memAddress (30'd0),
-        .switches   ({12'd0, sw}),  // pad 4-bit sw to 16 bits
+        .switches   ({12'd0, sw}), 
         .readData   (sw_synced_bus)
     );
     wire [3:0] sw_synced = sw_synced_bus[3:0];
 
-    // ----------------------------------------------------------
-    // 4. ALU - fixed operands A=0x10101010, B=0x01010101
-    // ----------------------------------------------------------
+   
     localparam [31:0] A = 32'h10101010;
     localparam [31:0] B = 32'h01010101;
 
@@ -61,10 +59,7 @@ module fsm_top #(
         .Zero      (alu_zero)
     );
 
-    // ----------------------------------------------------------
-    // 5. switches module - drives physical LEDs
-    //    leds output connected directly to top-level led port
-    // ----------------------------------------------------------
+    
     reg        sw_write_en;
     reg [31:0] sw_write_data;
 
@@ -76,12 +71,10 @@ module fsm_top #(
         .readEnable (1'b0),
         .memAddress (30'd0),
         .readData   (),
-        .leds       (led)           // drives physical LED pins directly
+        .leds       (led)           
     );
 
-    // ----------------------------------------------------------
-    // 6. FSM
-    // ----------------------------------------------------------
+    
     localparam [1:0] IDLE    = 2'd0,
                      COMPUTE = 2'd1,
                      DISPLAY = 2'd2;
@@ -95,13 +88,13 @@ module fsm_top #(
             sw_write_en     <= 1'b0;
             sw_write_data   <= 32'd0;
         end else begin
-            sw_write_en <= 1'b0;    // default off
+            sw_write_en <= 1'b0;    
 
             case (state)
 
                 IDLE: begin
                     sw_write_data <= 32'd0;
-                    sw_write_en   <= 1'b1;      // clear LEDs
+                    sw_write_en   <= 1'b1;      
                     if (sw_synced != 4'd0) begin
                         alu_control_reg <= sw_synced;
                         state           <= COMPUTE;
