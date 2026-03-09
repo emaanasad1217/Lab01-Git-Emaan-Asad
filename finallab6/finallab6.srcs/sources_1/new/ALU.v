@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 module ALU (
-    input [31:0] A,           // 32-bit operand A
-    input [31:0] B,           // 32-bit operand B
-    input [3:0] ALUControl,   // 4-bit control signal
-    output reg [31:0] ALUResult, // 32-bit result
-    output Zero               // Zero flag for BEQ
+    input [31:0] A,          
+    input [31:0] B,           
+    input [3:0] ALUControl,   
+    output reg [31:0] ALUResult,
+    output Zero               
 );
     localparam AND_OP = 4'b0000;
     localparam OR_OP  = 4'b0001;
@@ -14,13 +14,13 @@ module ALU (
     localparam SLL_OP = 4'b1000;
     localparam SRL_OP = 4'b1001;
     wire [31:0] B_for_adder;
-    wire [32:0] carry;           // carry[0] = cin for LSB, carry[32] ignored
+    wire [32:0] carry;           
     wire [31:0] add_result;
 
     reg [31:0] B_temp;
     always @(*) begin
         if (ALUControl == SUB_OP)
-            B_temp = ~B;      // invert for 2's complement subtraction
+            B_temp = ~B;     
         else
             B_temp = B;
     end
@@ -50,7 +50,7 @@ module ALU (
     wire [31:0] or_result  = A | B;
     wire [31:0] xor_result = A ^ B;
     wire [31:0] sll_result = A << B[4:0];   // Shift Left Logical
-    wire [31:0] srl_result = A >> B[4:0];   // Shift Right Logical (zero fill)
+    wire [31:0] srl_result = A >> B[4:0];   // Shift Right Logical 
 
     always @(*) begin
         if (ALUControl == AND_OP)
@@ -66,7 +66,7 @@ module ALU (
         else if (ALUControl == SRL_OP)
             ALUResult = srl_result;
         else
-            ALUResult = 32'b0;   // default (safe)
+            ALUResult = 32'b0;   
     end
     assign Zero = (ALUResult == 32'b0);
 endmodule
