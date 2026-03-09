@@ -1,6 +1,3 @@
-//  removes  bounce from a pushbutton.  the raw button
-// signal must remain stable for STABLE_MAX consecutive clock
-// cycles before the output is updated.
 `timescale 1ns / 1ps
 module debouncer #(
     parameter STABLE_MAX = 500_000
