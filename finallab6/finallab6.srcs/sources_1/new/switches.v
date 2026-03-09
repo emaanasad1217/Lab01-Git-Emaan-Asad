@@ -1,8 +1,5 @@
 `timescale 1ns / 1ps
-// switches.v
-// Drives physical LEDs: when writeEnable is high, latches
-// writeData[15:0] onto the leds output pins.
-// readData mirrors the current LED state for FSM readback.
+
 module switches (
     input              clk,
     input              rst,
@@ -11,7 +8,7 @@ module switches (
     input              readEnable,
     input  [29:0]      memAddress,
     output reg [31:0]  readData,
-    output reg [15:0]  leds        // ? physical LED pins
+    output reg [15:0]  leds        
 );
     always @(posedge clk) begin
         if (rst) begin
