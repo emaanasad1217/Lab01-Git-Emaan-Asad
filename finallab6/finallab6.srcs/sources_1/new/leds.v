@@ -1,8 +1,6 @@
 
 `timescale 1ns / 1ps
-// leds.v
-// Reads and syncs raw switch pins (switches input ? readData).
-// The switches input is the raw sw pins from the FPGA top level.
+
 module leds (
     input              clk,
     input              rst,
@@ -11,8 +9,8 @@ module leds (
     input              writeEnable,
     input              readEnable,
     input  [29:0]      memAddress,
-    input  [15:0]      switches,    // raw switch pins from FPGA
-    output reg [31:0]  readData     // synced switch values
+    input  [15:0]      switches,    
+    output reg [31:0]  readData     
 );
     reg [15:0] sync_stage1;
 
