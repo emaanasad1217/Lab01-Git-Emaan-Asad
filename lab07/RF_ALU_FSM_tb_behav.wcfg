@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="RF_ALU_FSM_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="RF_ALU_FSM_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="266001fs"></ZoomEndTime>
+      <Cursor1Time time="84110fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="136"></NameColumnWidth>
+      <ValueColumnWidth column_width="64"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="31" />
+   <wvobject fp_name="/RF_ALU_FSM_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/writeEnable" type="logic">
+      <obj_property name="ElementShortName">writeEnable</obj_property>
+      <obj_property name="ObjectShortName">writeEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/rs1" type="array">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/rd" type="array">
+      <obj_property name="ElementShortName">rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/readData1" type="array">
+      <obj_property name="ElementShortName">readData1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/readData2" type="array">
+      <obj_property name="ElementShortName">readData2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/alu_A" type="array">
+      <obj_property name="ElementShortName">alu_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/alu_B" type="array">
+      <obj_property name="ElementShortName">alu_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/alu_ctrl" type="array">
+      <obj_property name="ElementShortName">alu_ctrl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_ctrl[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/alu_result" type="array">
+      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/u_rf/regs" type="array">
+      <obj_property name="ElementShortName">regs[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">regs[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/alu_zero" type="logic">
+      <obj_property name="ElementShortName">alu_zero</obj_property>
+      <obj_property name="ObjectShortName">alu_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/op_table" type="array">
+      <obj_property name="ElementShortName">op_table[0:6][3:0]</obj_property>
+      <obj_property name="ObjectShortName">op_table[0:6][3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/dst_table" type="array">
+      <obj_property name="ElementShortName">dst_table[0:6][4:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_table[0:6][4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/op_idx" type="array">
+      <obj_property name="ElementShortName">op_idx[31:0]</obj_property>
+      <obj_property name="ObjectShortName">op_idx[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/IDLE" type="array">
+      <obj_property name="ElementShortName">IDLE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">IDLE[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/WRITE_REGS" type="array">
+      <obj_property name="ElementShortName">WRITE_REGS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_REGS[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/READ_REGISTERS" type="array">
+      <obj_property name="ElementShortName">READ_REGISTERS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">READ_REGISTERS[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/ALU_OPERATION" type="array">
+      <obj_property name="ElementShortName">ALU_OPERATION[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_OPERATION[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/WRITE_REGISTERS" type="array">
+      <obj_property name="ElementShortName">WRITE_REGISTERS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_REGISTERS[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/ADD_OP" type="array">
+      <obj_property name="ElementShortName">ADD_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ADD_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/SUB_OP" type="array">
+      <obj_property name="ElementShortName">SUB_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SUB_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/AND_OP" type="array">
+      <obj_property name="ElementShortName">AND_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AND_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/OR_OP" type="array">
+      <obj_property name="ElementShortName">OR_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">OR_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/XOR_OP" type="array">
+      <obj_property name="ElementShortName">XOR_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">XOR_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/SLL_OP" type="array">
+      <obj_property name="ElementShortName">SLL_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SLL_OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RF_ALU_FSM_tb/SRL_OP" type="array">
+      <obj_property name="ElementShortName">SRL_OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SRL_OP[3:0]</obj_property>
+   </wvobject>
+</wave_config>

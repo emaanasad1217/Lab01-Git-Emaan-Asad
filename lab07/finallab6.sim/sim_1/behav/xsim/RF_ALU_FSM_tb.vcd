@@ -1,0 +1,1201 @@
+$date
+   Thu Mar 12 11:21:09 2026
+$end
+$version
+  2020.1
+$end
+$timescale
+  1ps
+$end
+$scope module RF_ALU_FSM_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var reg 1 # writeEnable $end
+$var reg 5 $ rs1 [4:0] $end
+$var reg 5 % rs2 [4:0] $end
+$var reg 5 & rd [4:0] $end
+$var reg 32 ' writeData [31:0] $end
+$var wire 32 ( readData1 [31:0] $end
+$var wire 32 ) readData2 [31:0] $end
+$var reg 32 * alu_A [31:0] $end
+$var reg 32 + alu_B [31:0] $end
+$var reg 4 , alu_ctrl [3:0] $end
+$var wire 32 - alu_result [31:0] $end
+$var wire 1 . alu_zero $end
+$var reg 3 / state [2:0] $end
+$var integer 32 0 op_idx $end
+$var parameter 3 1 IDLE [2:0] $end
+$var parameter 3 2 WRITE_REGS [2:0] $end
+$var parameter 3 3 READ_REGISTERS [2:0] $end
+$var parameter 3 4 ALU_OPERATION [2:0] $end
+$var parameter 3 5 WRITE_REGISTERS [2:0] $end
+$var parameter 4 6 ADD_OP [3:0] $end
+$var parameter 4 7 SUB_OP [3:0] $end
+$var parameter 4 8 AND_OP [3:0] $end
+$var parameter 4 9 OR_OP [3:0] $end
+$var parameter 4 : XOR_OP [3:0] $end
+$var parameter 4 ; SLL_OP [3:0] $end
+$var parameter 4 < SRL_OP [3:0] $end
+$scope module u_rf $end
+$var wire 1 = clk $end
+$var wire 1 > rst $end
+$var wire 1 ? writeEnable $end
+$var wire 5 @ rs1 [4:0] $end
+$var wire 5 A rs2 [4:0] $end
+$var wire 5 B rd [4:0] $end
+$var wire 32 C writeData [31:0] $end
+$var wire 32 ( readData1 [31:0] $end
+$var wire 32 ) readData2 [31:0] $end
+$var integer 32 D i $end
+$upscope $end
+$scope module u_alu $end
+$var wire 32 E A [31:0] $end
+$var wire 32 F B [31:0] $end
+$var wire 4 G ALUControl [3:0] $end
+$var reg 32 H ALUResult [31:0] $end
+$var wire 1 . Zero $end
+$var wire 32 I B_for_adder [31:0] $end
+$var wire 33 J carry [32:0] $end
+$var wire 32 K add_result [31:0] $end
+$var reg 32 L B_temp [31:0] $end
+$var reg 1 M cin_lsb $end
+$var wire 32 N and_result [31:0] $end
+$var wire 32 O or_result [31:0] $end
+$var wire 32 P xor_result [31:0] $end
+$var wire 32 Q sll_result [31:0] $end
+$var wire 32 R srl_result [31:0] $end
+$var parameter 4 S AND_OP [3:0] $end
+$var parameter 4 T OR_OP [3:0] $end
+$var parameter 4 U ADD_OP [3:0] $end
+$var parameter 4 V SUB_OP [3:0] $end
+$var parameter 4 W XOR_OP [3:0] $end
+$var parameter 4 X SLL_OP [3:0] $end
+$var parameter 4 Y SRL_OP [3:0] $end
+$scope module ripple_adder[0].fa $end
+$var wire 1 Z a $end
+$var wire 1 [ b $end
+$var wire 1 \ cin $end
+$var reg 1 ] sum $end
+$var reg 1 ^ cout $end
+$upscope $end
+$scope module ripple_adder[1].fa $end
+$var wire 1 _ a $end
+$var wire 1 ` b $end
+$var wire 1 a cin $end
+$var reg 1 b sum $end
+$var reg 1 c cout $end
+$upscope $end
+$scope module ripple_adder[2].fa $end
+$var wire 1 d a $end
+$var wire 1 e b $end
+$var wire 1 f cin $end
+$var reg 1 g sum $end
+$var reg 1 h cout $end
+$upscope $end
+$scope module ripple_adder[3].fa $end
+$var wire 1 i a $end
+$var wire 1 j b $end
+$var wire 1 k cin $end
+$var reg 1 l sum $end
+$var reg 1 m cout $end
+$upscope $end
+$scope module ripple_adder[4].fa $end
+$var wire 1 n a $end
+$var wire 1 o b $end
+$var wire 1 p cin $end
+$var reg 1 q sum $end
+$var reg 1 r cout $end
+$upscope $end
+$scope module ripple_adder[5].fa $end
+$var wire 1 s a $end
+$var wire 1 t b $end
+$var wire 1 u cin $end
+$var reg 1 v sum $end
+$var reg 1 w cout $end
+$upscope $end
+$scope module ripple_adder[6].fa $end
+$var wire 1 x a $end
+$var wire 1 y b $end
+$var wire 1 z cin $end
+$var reg 1 { sum $end
+$var reg 1 | cout $end
+$upscope $end
+$scope module ripple_adder[7].fa $end
+$var wire 1 } a $end
+$var wire 1 ~ b $end
+$var wire 1 !! cin $end
+$var reg 1 "! sum $end
+$var reg 1 #! cout $end
+$upscope $end
+$scope module ripple_adder[8].fa $end
+$var wire 1 $! a $end
+$var wire 1 %! b $end
+$var wire 1 &! cin $end
+$var reg 1 '! sum $end
+$var reg 1 (! cout $end
+$upscope $end
+$scope module ripple_adder[9].fa $end
+$var wire 1 )! a $end
+$var wire 1 *! b $end
+$var wire 1 +! cin $end
+$var reg 1 ,! sum $end
+$var reg 1 -! cout $end
+$upscope $end
+$scope module ripple_adder[10].fa $end
+$var wire 1 .! a $end
+$var wire 1 /! b $end
+$var wire 1 0! cin $end
+$var reg 1 1! sum $end
+$var reg 1 2! cout $end
+$upscope $end
+$scope module ripple_adder[11].fa $end
+$var wire 1 3! a $end
+$var wire 1 4! b $end
+$var wire 1 5! cin $end
+$var reg 1 6! sum $end
+$var reg 1 7! cout $end
+$upscope $end
+$scope module ripple_adder[12].fa $end
+$var wire 1 8! a $end
+$var wire 1 9! b $end
+$var wire 1 :! cin $end
+$var reg 1 ;! sum $end
+$var reg 1 <! cout $end
+$upscope $end
+$scope module ripple_adder[13].fa $end
+$var wire 1 =! a $end
+$var wire 1 >! b $end
+$var wire 1 ?! cin $end
+$var reg 1 @! sum $end
+$var reg 1 A! cout $end
+$upscope $end
+$scope module ripple_adder[14].fa $end
+$var wire 1 B! a $end
+$var wire 1 C! b $end
+$var wire 1 D! cin $end
+$var reg 1 E! sum $end
+$var reg 1 F! cout $end
+$upscope $end
+$scope module ripple_adder[15].fa $end
+$var wire 1 G! a $end
+$var wire 1 H! b $end
+$var wire 1 I! cin $end
+$var reg 1 J! sum $end
+$var reg 1 K! cout $end
+$upscope $end
+$scope module ripple_adder[16].fa $end
+$var wire 1 L! a $end
+$var wire 1 M! b $end
+$var wire 1 N! cin $end
+$var reg 1 O! sum $end
+$var reg 1 P! cout $end
+$upscope $end
+$scope module ripple_adder[17].fa $end
+$var wire 1 Q! a $end
+$var wire 1 R! b $end
+$var wire 1 S! cin $end
+$var reg 1 T! sum $end
+$var reg 1 U! cout $end
+$upscope $end
+$scope module ripple_adder[18].fa $end
+$var wire 1 V! a $end
+$var wire 1 W! b $end
+$var wire 1 X! cin $end
+$var reg 1 Y! sum $end
+$var reg 1 Z! cout $end
+$upscope $end
+$scope module ripple_adder[19].fa $end
+$var wire 1 [! a $end
+$var wire 1 \! b $end
+$var wire 1 ]! cin $end
+$var reg 1 ^! sum $end
+$var reg 1 _! cout $end
+$upscope $end
+$scope module ripple_adder[20].fa $end
+$var wire 1 `! a $end
+$var wire 1 a! b $end
+$var wire 1 b! cin $end
+$var reg 1 c! sum $end
+$var reg 1 d! cout $end
+$upscope $end
+$scope module ripple_adder[21].fa $end
+$var wire 1 e! a $end
+$var wire 1 f! b $end
+$var wire 1 g! cin $end
+$var reg 1 h! sum $end
+$var reg 1 i! cout $end
+$upscope $end
+$scope module ripple_adder[22].fa $end
+$var wire 1 j! a $end
+$var wire 1 k! b $end
+$var wire 1 l! cin $end
+$var reg 1 m! sum $end
+$var reg 1 n! cout $end
+$upscope $end
+$scope module ripple_adder[23].fa $end
+$var wire 1 o! a $end
+$var wire 1 p! b $end
+$var wire 1 q! cin $end
+$var reg 1 r! sum $end
+$var reg 1 s! cout $end
+$upscope $end
+$scope module ripple_adder[24].fa $end
+$var wire 1 t! a $end
+$var wire 1 u! b $end
+$var wire 1 v! cin $end
+$var reg 1 w! sum $end
+$var reg 1 x! cout $end
+$upscope $end
+$scope module ripple_adder[25].fa $end
+$var wire 1 y! a $end
+$var wire 1 z! b $end
+$var wire 1 {! cin $end
+$var reg 1 |! sum $end
+$var reg 1 }! cout $end
+$upscope $end
+$scope module ripple_adder[26].fa $end
+$var wire 1 ~! a $end
+$var wire 1 !" b $end
+$var wire 1 "" cin $end
+$var reg 1 #" sum $end
+$var reg 1 $" cout $end
+$upscope $end
+$scope module ripple_adder[27].fa $end
+$var wire 1 %" a $end
+$var wire 1 &" b $end
+$var wire 1 '" cin $end
+$var reg 1 (" sum $end
+$var reg 1 )" cout $end
+$upscope $end
+$scope module ripple_adder[28].fa $end
+$var wire 1 *" a $end
+$var wire 1 +" b $end
+$var wire 1 ," cin $end
+$var reg 1 -" sum $end
+$var reg 1 ." cout $end
+$upscope $end
+$scope module ripple_adder[29].fa $end
+$var wire 1 /" a $end
+$var wire 1 0" b $end
+$var wire 1 1" cin $end
+$var reg 1 2" sum $end
+$var reg 1 3" cout $end
+$upscope $end
+$scope module ripple_adder[30].fa $end
+$var wire 1 4" a $end
+$var wire 1 5" b $end
+$var wire 1 6" cin $end
+$var reg 1 7" sum $end
+$var reg 1 8" cout $end
+$upscope $end
+$scope module ripple_adder[31].fa $end
+$var wire 1 9" a $end
+$var wire 1 :" b $end
+$var wire 1 ;" cin $end
+$var reg 1 <" sum $end
+$var reg 1 =" cout $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0!!
+0!"
+1"
+0"!
+0""
+0#
+0#!
+0#"
+b0 $
+0$!
+0$"
+b0 %
+0%!
+0%"
+b0 &
+0&!
+0&"
+b0 '
+0'!
+0'"
+b0 (
+0(!
+0("
+b0 )
+0)!
+0)"
+b0 *
+0*!
+0*"
+b0 +
+0+!
+0+"
+b10 ,
+0,!
+0,"
+b0 -
+0-!
+0-"
+1.
+0.!
+0."
+b0 /
+0/!
+0/"
+b0 0
+00!
+00"
+b0 1
+01!
+01"
+b1 2
+02!
+02"
+b10 3
+03!
+03"
+b11 4
+04!
+04"
+b100 5
+05!
+05"
+b10 6
+06!
+06"
+b110 7
+07!
+07"
+b0 8
+08!
+08"
+b1 9
+09!
+09"
+b100 :
+0:!
+0:"
+b1000 ;
+0;!
+0;"
+b1001 <
+0<!
+0<"
+0=
+0=!
+0="
+1>
+0>!
+0?
+0?!
+b0 @
+0@!
+b0 A
+0A!
+b0 B
+0B!
+b0 C
+0C!
+bx D
+0D!
+b0 E
+0E!
+b0 F
+0F!
+b10 G
+0G!
+b0 H
+0H!
+b0 I
+0I!
+b0 J
+0J!
+b0 K
+0K!
+b0 L
+0L!
+0M
+0M!
+b0 N
+0N!
+b0 O
+0O!
+b0 P
+0P!
+b0 Q
+0Q!
+b0 R
+0R!
+b0 S
+0S!
+b1 T
+0T!
+b10 U
+0U!
+b110 V
+0V!
+b100 W
+0W!
+b1000 X
+0X!
+b1001 Y
+0Y!
+0Z
+0Z!
+0[
+0[!
+0\
+0\!
+0]
+0]!
+0^
+0^!
+0_
+0_!
+0`
+0`!
+0a
+0a!
+0b
+0b!
+0c
+0c!
+0d
+0d!
+0e
+0e!
+0f
+0f!
+0g
+0g!
+0h
+0h!
+0i
+0i!
+0j
+0j!
+0k
+0k!
+0l
+0l!
+0m
+0m!
+0n
+0n!
+0o
+0o!
+0p
+0p!
+0q
+0q!
+0r
+0r!
+0s
+0s!
+0t
+0t!
+0u
+0u!
+0v
+0v!
+0w
+0w!
+0x
+0x!
+0y
+0y!
+0z
+0z!
+0{
+0{!
+0|
+0|!
+0}
+0}!
+0~
+0~!
+$end
+#5000
+1!
+1=
+#10000
+0!
+0=
+#15000
+1!
+1=
+#16000
+0"
+0>
+#20000
+0!
+0=
+#25000
+1!
+1=
+#26000
+1#
+b1 &
+b10000000100000001000000010000 '
+b1 /
+1?
+b1 B
+b10000000100000001000000010000 C
+#30000
+0!
+0=
+#35000
+1!
+1=
+#36000
+1#
+b10 &
+b1000000010000000100000001 '
+b10 B
+b1000000010000000100000001 C
+#40000
+0!
+0=
+#45000
+1!
+1=
+#46000
+1#
+b11 &
+b101 '
+b11 B
+b101 C
+#50000
+0!
+0=
+#55000
+1!
+1=
+#56000
+0#
+b1 $
+b10 %
+b10000000100000001000000010000 (
+b1000000010000000100000001 )
+b10 /
+0?
+b1 @
+b10 A
+#60000
+0!
+0=
+#65000
+1!
+1=
+#66000
+0!"
+0$!
+1%!
+0%"
+0&"
+1'!
+0(!
+0)!
+b10000000100000001000000010000 *
+0*!
+1*"
+b1000000010000000100000001 +
+0+"
+b10 ,
+b10001000100010001000100010001 -
+1-"
+0.
+0.!
+0."
+b11 /
+0/!
+0/"
+00"
+03!
+04!
+04"
+05"
+18!
+09!
+09"
+0:"
+1;!
+0<!
+0=!
+0>!
+0B!
+0C!
+b10000000100000001000000010000 E
+b1000000010000000100000001 F
+0G!
+b10001000100010001000100010001 H
+0H!
+b1000000010000000100000001 I
+b10001000100010001000100010001 K
+b1000000010000000100000001 L
+0L!
+1M!
+b0 N
+b10001000100010001000100010001 O
+1O!
+b10001000100010001000100010001 P
+0P!
+b100000001000000010000000100000 Q
+0Q!
+b1000000010000000100000001000 R
+0R!
+0V!
+0W!
+0Z
+1[
+0[!
+0\!
+1]
+0^
+0_
+0`
+1`!
+0a!
+1c!
+0d
+0d!
+0e
+0e!
+0f!
+0i
+0j
+0j!
+0k!
+1n
+0o
+0o!
+0p!
+1q
+0r
+0s
+0t
+0t!
+1u!
+1w!
+0x
+0x!
+0y
+0y!
+0z!
+0}
+0~
+0~!
+#70000
+0!
+0=
+#75000
+1!
+1=
+#76000
+1#
+b100 &
+b10001000100010001000100010001 '
+b100 /
+1?
+b100 B
+b10001000100010001000100010001 C
+#80000
+0!
+0=
+#85000
+1!
+1=
+#86000
+0#
+b1 $
+b10 %
+b10 /
+b1 0
+0?
+#90000
+0!
+0=
+#95000
+1!
+1=
+#96000
+1!!
+1!"
+0"!
+1#!
+1#"
+0$"
+0%!
+1&!
+1&"
+1'!
+0(!
+1("
+0)"
+b10000000100000001000000010000 *
+1*!
+b1000000010000000100000001 +
+1+"
+b110 ,
+1,!
+b1111000011110000111100001111 -
+0-!
+0-"
+1."
+b11 /
+1/!
+10"
+11!
+11"
+02!
+02"
+13"
+14!
+15"
+16!
+16"
+07!
+07"
+18"
+19!
+1:"
+0;!
+1;"
+1<!
+0<"
+1="
+1>!
+1?!
+0@!
+1A!
+1C!
+1D!
+0E!
+1F!
+b110 G
+b1111000011110000111100001111 H
+1H!
+b11111110111111101111111011111110 I
+1I!
+b111100001111000011110000111100001 J
+0J!
+b1111000011110000111100001111 K
+1K!
+b11111110111111101111111011111110 L
+1M
+0M!
+1N!
+1O!
+0P!
+1R!
+1T!
+0U!
+1W!
+1Y!
+0Z!
+0[
+1\
+1\!
+1]
+0^
+1^!
+0_!
+1`
+1a!
+1b
+0c
+0c!
+1d!
+1e
+1f!
+1g
+1g!
+0h
+0h!
+1i!
+1j
+1k!
+1l
+1l!
+0m
+0m!
+1n!
+1o
+1p!
+0q
+1q!
+1r
+0r!
+1s!
+1t
+1u
+0u!
+0v
+1v!
+1w
+1w!
+0x!
+1y
+1z
+1z!
+0{
+1|
+1|!
+0}!
+1~
+#100000
+0!
+0=
+#105000
+1!
+1=
+#106000
+1#
+b101 &
+b1111000011110000111100001111 '
+b100 /
+1?
+b101 B
+b1111000011110000111100001111 C
+#110000
+0!
+0=
+#115000
+1!
+1=
+#116000
+0#
+b1 $
+b10 %
+b10 /
+b10 0
+0?
+#120000
+0!
+0=
+#125000
+1!
+1=
+#126000
+0!!
+0!"
+0"!
+0#!
+0#"
+0$"
+1%!
+0&!
+0&"
+1'!
+0(!
+0("
+0)"
+b10000000100000001000000010000 *
+0*!
+b1000000010000000100000001 +
+0+!
+0+"
+b0 ,
+0,!
+b0 -
+0-!
+1-"
+1.
+0."
+b11 /
+0/!
+00"
+01!
+01"
+02!
+02"
+03"
+04!
+05"
+06!
+06"
+07!
+07"
+08"
+09!
+0:"
+1;!
+0;"
+0<!
+0<"
+0="
+0>!
+0?!
+0@!
+0A!
+0C!
+0D!
+0E!
+0F!
+b0 G
+b0 H
+0H!
+b1000000010000000100000001 I
+0I!
+b0 J
+0J!
+b10001000100010001000100010001 K
+0K!
+b1000000010000000100000001 L
+0M
+1M!
+0N!
+1O!
+0P!
+0R!
+0S!
+0T!
+0U!
+0W!
+0Y!
+0Z!
+1[
+0\
+0\!
+1]
+0^
+0^!
+0_!
+0`
+0a!
+0b
+0c
+1c!
+0d!
+0e
+0f!
+0g
+0g!
+0h
+0h!
+0i!
+0j
+0k!
+0l
+0l!
+0m
+0m!
+0n!
+0o
+0p!
+1q
+0q!
+0r
+0r!
+0s!
+0t
+0u
+1u!
+0v
+0v!
+0w
+1w!
+0x!
+0y
+0z
+0z!
+0{
+0{!
+0|
+0|!
+0}!
+0~
+#130000
+0!
+0=
+#135000
+1!
+1=
+#136000
+1#
+b110 &
+b0 '
+b100 /
+1?
+b110 B
+b0 C
+#140000
+0!
+0=
+#145000
+1!
+1=
+#146000
+0#
+b1 $
+b10 %
+b10 /
+b11 0
+0?
+#150000
+0!
+0=
+#155000
+1!
+1=
+#156000
+b10000000100000001000000010000 *
+b1000000010000000100000001 +
+b1 ,
+b10001000100010001000100010001 -
+0.
+b11 /
+b1 G
+b10001000100010001000100010001 H
+b1000000010000000100000001 L
+#160000
+0!
+0=
+#165000
+1!
+1=
+#166000
+1#
+b111 &
+b10001000100010001000100010001 '
+b100 /
+1?
+b111 B
+b10001000100010001000100010001 C
+#170000
+0!
+0=
+#175000
+1!
+1=
+#176000
+0#
+b1 $
+b10 %
+b10 /
+b100 0
+0?
+#180000
+0!
+0=
+#185000
+1!
+1=
+#186000
+b10000000100000001000000010000 *
+b1000000010000000100000001 +
+b100 ,
+b11 /
+b100 G
+b10001000100010001000100010001 H
+b1000000010000000100000001 L
+#190000
+0!
+0=
+#195000
+1!
+1=
+#196000
+1#
+b1000 &
+b10001000100010001000100010001 '
+b100 /
+1?
+b1000 B
+#200000
+0!
+0=
+#205000
+1!
+1=
+#206000
+0#
+b1 $
+b10 %
+b10 /
+b101 0
+0?
+#210000
+0!
+0=
+#215000
+1!
+1=
+#216000
+b10000000100000001000000010000 *
+b1000000010000000100000001 +
+b1000 ,
+b100000001000000010000000100000 -
+b11 /
+b1000 G
+b100000001000000010000000100000 H
+b1000000010000000100000001 L
+#220000
+0!
+0=
+#225000
+1!
+1=
+#226000
+1#
+b1001 &
+b100000001000000010000000100000 '
+b100 /
+1?
+b1001 B
+b100000001000000010000000100000 C
+#230000
+0!
+0=
+#235000
+1!
+1=
+#236000
+0#
+b1 $
+b10 %
+b10 /
+b110 0
+0?
+#240000
+0!
+0=
+#245000
+1!
+1=
+#246000
+b10000000100000001000000010000 *
+b1000000010000000100000001 +
+b1001 ,
+b1000000010000000100000001000 -
+b11 /
+b1001 G
+b1000000010000000100000001000 H
+b1000000010000000100000001 L
+#250000
+0!
+0=
+#255000
+1!
+1=
+#256000
+1#
+b1010 &
+b1000000010000000100000001000 '
+b100 /
+1?
+b1010 B
+b1000000010000000100000001000 C
+#260000
+0!
+0=
+#265000
+1!
+1=
+#266000
+0#
+b0 /
+b111 0
