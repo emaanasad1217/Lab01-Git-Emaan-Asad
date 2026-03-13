@@ -1,0 +1,116 @@
+`timescale 1ns / 1ps
+ 
+module RegisterFile_tb;
+ 
+reg clk;
+reg rst;
+reg writeEnable;
+ 
+reg [4:0] rs1;
+reg [4:0] rs2;
+reg [4:0] rd;
+ 
+reg [31:0] writeData;
+ 
+wire [31:0] readData1;
+wire [31:0] readData2;
+ 
+RegisterFile DUT(
+    .clk(clk),
+    .rst(rst),
+    .writeEnable(writeEnable),
+    .rs1(rs1),
+    .rs2(rs2),
+    .rd(rd),
+    .writeData(writeData),
+    .readData1(readData1),
+    .readData2(readData2)
+);
+ 
+initial clk = 0;
+always #5 clk = ~clk;
+ 
+initial begin
+ 
+rst = 1;
+writeEnable = 0;
+rs1 = 0;
+rs2 = 0;
+rd = 0;
+writeData = 0;
+ 
+#20 
+rst = 0;
+ 
+#10
+rd = 5;
+writeData = 32'hDEADBEEF;
+writeEnable = 1;
+ 
+#10 writeEnable = 0;
+ 
+rs1 = 5;
+#5 $display("x5 = %h", readData1);
+ 
+rd = 0;
+writeData = 32'hFFFFFFFF;
+writeEnable = 1;
+ 
+#10 
+writeEnable = 0;
+ 
+rs1 = 0;
+#5 
+$display("x0 should remain 0 = %h", readData1);
+ 
+rd = 7;
+writeData = 32'h12345678;
+writeEnable = 1;
+ 
+#10 writeEnable = 0;
+ 
+rs1 = 5;
+rs2 = 7;
+ 
+#10
+$display("Port1 = %h",readData1);
+$display("Port2 = %h",readData2);
+ 
+rd = 5;
+writeData = 32'hAAAAAAAA;
+writeEnable = 1;
+ 
+#10 
+writeEnable = 0;
+ 
+rs1 = 5;
+#10 $display("x5 overwritten = %h",readData1);
+ 
+rst = 1;
+#10 
+rst = 0;
+ 
+rs1 = 5;
+#10 $display("After reset x5 = %h",readData1);
+ 
+ 
+
+ 
+rd = 10;
+writeData = 32'hCADDCAFE;
+writeEnable = 1;
+ 
+#10 writeEnable = 0;
+ 
+rs1 = 10;
+#10 $display("x10 = %h", readData1);
+ 
+ 
+
+ 
+$display("RegisterFile TB finished");
+$finish;
+ 
+end
+ 
+endmodule
