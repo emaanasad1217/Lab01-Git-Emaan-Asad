@@ -97,7 +97,7 @@ rs1 = 5;
 
  
 rd = 10;
-writeData = 32'hCADDCAFE;
+writeData = 32'hDECCAFFF;
 writeEnable = 1;
  
 #10 writeEnable = 0;
