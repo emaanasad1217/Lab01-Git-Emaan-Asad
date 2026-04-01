@@ -33,18 +33,14 @@ module top_control (
     output [15:0] led
 );
 
-    // --------------------------------------------------------
-    // FSM states
-    // --------------------------------------------------------
+   
     localparam IDLE    = 2'b00;
     localparam COMPUTE = 2'b01;
     localparam DISPLAY = 2'b10;
 
     reg [1:0] state, next_state;
 
-    // --------------------------------------------------------
-    // Switch module wires
-    // --------------------------------------------------------
+   
     wire [31:0] sw_readData;
 
     switches sw_inst (
@@ -59,13 +55,7 @@ module top_control (
         .readData   (sw_readData)
     );
 
-    // --------------------------------------------------------
-    // Extract fields from switch readData
-    // sw_readData[31:0] = {switchData[3],switchData[2],
-    //                      switchData[1],switchData[0]}
-    // switchData[1] = sw[15:8], switchData[0] = sw[7:0]
-    // So sw_readData[14:8] = opcode, [7:5]=funct3, [4]=funct7[5]
-    // --------------------------------------------------------
+    
     wire [6:0] opcode;
     wire [2:0] funct3;
     wire [6:0] funct7;
@@ -74,9 +64,7 @@ module top_control (
     assign funct3 = sw_readData[7:5];
     assign funct7 = {1'b0, sw_readData[4], 5'b0}; // only bit 5 matters
 
-    // --------------------------------------------------------
-    // Main Control Unit
-    // --------------------------------------------------------
+  
     wire        RegWrite;
     wire        MemRead;
     wire        MemWrite;
@@ -96,9 +84,7 @@ module top_control (
         .Branch   (Branch)
     );
 
-    // --------------------------------------------------------
-    // ALU Control Unit
-    // --------------------------------------------------------
+   
     wire [3:0] ALUControl;
 
     alu_control uut_alu (
@@ -108,17 +94,13 @@ module top_control (
         .ALUControl (ALUControl)
     );
 
-    // --------------------------------------------------------
-    // FSM: state register
-    // --------------------------------------------------------
+    
     always @(posedge clk or posedge rst) begin
         if (rst) state <= IDLE;
         else     state <= next_state;
     end
 
-    // --------------------------------------------------------
-    // FSM: next state logic
-    // --------------------------------------------------------
+   
     always @(*) begin
         case (state)
             IDLE   : next_state = COMPUTE;
@@ -128,10 +110,7 @@ module top_control (
         endcase
     end
 
-    // --------------------------------------------------------
-    // FSM: assemble LED word and drive leds module
-    // writeEnable only asserted in DISPLAY state
-    // --------------------------------------------------------
+   
     reg [31:0] led_writeData;
     reg        led_writeEnable;
 
@@ -158,9 +137,7 @@ module top_control (
         end
     end
 
-    // --------------------------------------------------------
-    // LED module instantiation
-    // --------------------------------------------------------
+   
     wire [31:0] led_readData;
     wire [15:0] led_out;
 
@@ -175,9 +152,7 @@ module top_control (
         .leds       (led_out)
     );
 
-    // --------------------------------------------------------
-    // Drive physical LEDs from leds module output
-    // --------------------------------------------------------
+
     assign led = led_out;
 
 endmodule
