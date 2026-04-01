@@ -51,47 +51,37 @@ module alu_control (
     output reg  [3:0] ALUControl
 );
 
-    // funct3 encodings
+  
     localparam F3_ADD_SUB = 3'b000;  // add / sub / addi
-    localparam F3_SLL     = 3'b001;  // sll  (not implemented here)
+    localparam F3_SLL     = 3'b001;  // sll 
     localparam F3_SLT     = 3'b010;  // slt / slti
-    localparam F3_SLTU    = 3'b011;  // sltu (not implemented here)
-    localparam F3_XOR     = 3'b100;  // xor  (not implemented here)
+    localparam F3_SLTU    = 3'b011;  // sltu 
+    localparam F3_XOR     = 3'b100;  // xor  
     localparam F3_SRL_SRA = 3'b101;  // srl/sra
     localparam F3_OR      = 3'b110;  // or / ori
     localparam F3_AND     = 3'b111;  // and / andi
 
-    // funct7 discriminator (bit 5)
-    // funct7[5] = 0 ? standard (ADD)
-    // funct7[5] = 1 ? alternate (SUB for R-type, SRA for shifts)
+    
 
     always @(*) begin
-        ALUControl = 4'b0010;  // Default: ADD (safe fallback)
+        ALUControl = 4'b0010; 
 
         case (ALUOp)
-            // ------------------------------------------------
-            // ALUOp = 00: Load / Store ? always ADD
-            // ------------------------------------------------
+           
             2'b00: begin
                 ALUControl = 4'b0010;  // ADD
             end
 
-            // ------------------------------------------------
-            // ALUOp = 01: Branch (beq) ? always SUB
-            // ------------------------------------------------
+            
             2'b01: begin
                 ALUControl = 4'b0110;  // SUB
             end
 
-            // ------------------------------------------------
-            // ALUOp = 10: R-type or I-type ALU
-            //   Decode using funct3 (and funct7[5] for R-type)
-            // ------------------------------------------------
+           
             2'b10: begin
                 case (funct3)
                     F3_ADD_SUB: begin
-                        // R-type: funct7[5]=1 ? SUB, else ADD
-                        // I-type (addi): funct7 is part of imm ? treat as 0
+                        
                         if (funct7[5] == 1'b1)
                             ALUControl = 4'b0110;  // SUB (R-type only)
                         else
@@ -111,15 +101,12 @@ module alu_control (
                     end
 
                     default: begin
-                        // Unimplemented funct3 - safe default ADD
                         ALUControl = 4'b0010;
                     end
                 endcase
             end
 
-            // ------------------------------------------------
-            // Default / undefined ALUOp ? ADD
-            // ------------------------------------------------
+           
             default: begin
                 ALUControl = 4'b0010;  // ADD
             end
