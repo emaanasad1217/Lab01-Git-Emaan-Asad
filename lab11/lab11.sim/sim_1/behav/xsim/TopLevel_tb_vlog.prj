@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/ALU.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/AddressDecoder.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/DataMemory.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/FullAdder.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/RegisterFile.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/alu_control.v" \
+"../../../../lab11.srcs/sources_1/new/branchAdder.v" \
+"../../../../lab11.srcs/sources_1/new/immGen.v" \
+"../../../../../lab10/lab10.srcs/sources_1/new/instructionmemory.v" \
+"../../../../../Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/main_control.v" \
+"../../../../lab11.srcs/sources_1/new/mux2.v" \
+"../../../../lab11.srcs/sources_1/new/pcAdder.v" \
+"../../../../lab11.srcs/sources_1/new/programCounter.v" \
+"../../../../lab11.srcs/sim_1/new/tb.v" \
+"../../../../lab11.srcs/sources_1/new/toplevel.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

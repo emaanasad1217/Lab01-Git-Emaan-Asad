@@ -1,0 +1,20 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/ALU.v,1776667836,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/AddressDecoder.v,,ALU,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/AddressDecoder.v,1776667836,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/DataMemory.v,,AddressDecoder,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/DataMemory.v,1776667836,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/FullAdder.v,,DataMemory,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/FullAdder.v,1774512301,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/RegisterFile.v,,FullAdder,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab08_eal/lab08_eal.srcs/sources_1/new/RegisterFile.v,1776667836,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/alu_control.v,,RegisterFile,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/alu_control.v,1774509709,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/branchAdder.v,,alu_control,,,,,,,,
+C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/main_control.v,1776667836,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/mux2.v,,main_control,,,,,,,,
+C:/Users/ea09904/lab10/lab10.srcs/sources_1/new/instructionmemory.v,1776063355,verilog,,C:/Users/ea09904/Desktop/Lab01-Git-Emaan-Asad/lab9/lab9.srcs/sources_1/new/main_control.v,,instructionMemory,,,,,,,,
+C:/Users/ea09904/lab11/lab11.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sim_1/new/tb.v,1776670920,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/toplevel.v,,TopLevel_tb,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/branchAdder.v,1776064739,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/immGen.v,,branchAdder,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/immGen.v,1776667836,verilog,,C:/Users/ea09904/lab10/lab10.srcs/sources_1/new/instructionmemory.v,,immGen,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/mux2.v,1776667836,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/pcAdder.v,,mux2,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/pcAdder.v,1776064976,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/programCounter.v,,pcAdder,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/programCounter.v,1776064739,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sim_1/new/tb.v,,ProgramCounter,,,,,,,,
+C:/Users/ea09904/lab11/lab11.srcs/sources_1/new/toplevel.v,1776667836,verilog,,C:/Users/ea09904/lab11/lab11.srcs/sim_1/new/tb.v,,TopLevelProcessor,,,,,,,,
