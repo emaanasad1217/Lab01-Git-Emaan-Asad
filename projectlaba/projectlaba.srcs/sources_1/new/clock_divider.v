@@ -19,6 +19,6 @@ module clock_divider #(
             end
         end
     end
-    // slow clk only high when reached max val
+   
     assign slow_clk = (count == MAX_COUNT - 1) ? 1'b1 : 1'b0;
 endmodule

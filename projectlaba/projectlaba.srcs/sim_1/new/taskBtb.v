@@ -24,18 +24,12 @@
 
 module tb_Fibonacci();
 
-    // -------------------------------------------------------
-    // Testbench Signals
-    // -------------------------------------------------------
     reg clk;
     reg rst_raw;
     reg [15:0] sw;
     wire [15:0] led;
 
-    // -------------------------------------------------------
-    // Instantiate the Top-Level Processor System
-    // Override CLK_DIVIDER to 2 for lightning-fast simulation
-    // -------------------------------------------------------
+   
     ProcessorFPGA #(
         .CLK_DIVIDER(2) 
     ) uut (
@@ -45,47 +39,37 @@ module tb_Fibonacci();
         .led(led)
     );
 
-    // -------------------------------------------------------
-    // Clock Generation (100 MHz -> 10ns period)
-    // -------------------------------------------------------
+   
     always #5 clk = ~clk;
 
-    // -------------------------------------------------------
-    // Test Sequence
-    // -------------------------------------------------------
+
     initial begin
-        // INSTANT DEBOUNCER FIX: Force the internal clean reset to follow the raw reset
+     
         force uut.rst_clean = rst_raw;
 
         // 1. Initialize Inputs
         clk = 0;
-        rst_raw = 1; // Assert reset
-        sw = 16'd10;  // Switches are not used in the Fibonacci program
+        rst_raw = 1; 
+        sw = 16'd10;  
 
-        // Wait for system to stabilize
         #100;
 
-        // 2. Release Reset to start the processor
         rst_raw = 0;
         $display("\n==============================================");
         $display("   STARTING FIBONACCI SIMULATION");
         $display("==============================================\n");
 
-        // 3. Monitor the LEDs in the console
-        // This will print a line every time the processor writes a new number to the LEDs
         $monitor("Time: %0t ns | LEDs Display: %0d", $time, led);
 
-        // 4. Let the processor run
-        // It takes a few hundred instructions to compute up to fib(9).
-        // At 1 instruction per 20ns, 15,000ns is plenty of time.
+       
         #15000; 
 
-        // 5. Peek directly into Data Memory to verify the array
+       
         $display("\n==============================================");
         $display("   COMPUTATION FINISHED. CHECKING DATA MEMORY:");
         $display("==============================================");
         
-        // Since we changed the base address to 0x000, fib(0) is at mem[0], fib(1) at mem[1], etc.
+      
         $display("Mem[0] (Fib 0) : %0d", uut.u_datamem.mem[0]);
         $display("Mem[1] (Fib 1) : %0d", uut.u_datamem.mem[1]);
         $display("Mem[2] (Fib 2) : %0d", uut.u_datamem.mem[2]);

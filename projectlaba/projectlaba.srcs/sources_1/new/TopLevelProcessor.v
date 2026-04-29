@@ -19,7 +19,7 @@ module TopLevelProcessor (
     input  wire [31:0] mem_read_data
 );
 
-    // ----------------------------------------------------------------
+ 
     // PC DATAPATH
     // ----------------------------------------------------------------
     wire [31:0] PC;
@@ -94,20 +94,20 @@ module TopLevelProcessor (
     assign JumpTarget = (opcode == JALR_OP) ? jalr_target : jal_target;
     assign JumpSrc    = Jump;
 
-    // ----------------------------------------------------------------
+   
     // PC NEXT MUX  (Jump > Branch > PC+4)
-    // ----------------------------------------------------------------
+   
     assign PC_Next = JumpSrc ? JumpTarget :
                      PCSrc   ? BranchTarget :
                                PC_Plus4;
 
-    // ----------------------------------------------------------------
+
     // WRITEBACK MUX
     //   JAL/JALR  -> PC+4          (link address)
     //   AUIPC     -> PC + imm_out
     //   Load      -> mem_read_data
     //   default   -> ALUResult
-    // ----------------------------------------------------------------
+   
     assign WriteData = (opcode == JAL_OP || opcode == JALR_OP) ? PC_Plus4      :
                        (opcode == AUIPC_OP)                     ? PC + imm_out  :
                        MemtoReg                                  ? mem_read_data :

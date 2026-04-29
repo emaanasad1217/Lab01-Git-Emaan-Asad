@@ -23,25 +23,25 @@ module immGen (
     always @(*) begin
         case (opcode)
 
-            // --------------------------------------------------
+      
             // I-type: Load, ADDI/ANDI/ORI/XORI/SLLI/SRLI, JALR
             // imm[11:0] = instr[31:20], sign-extended from bit 31
-            // --------------------------------------------------
+     
             LOAD, I_ARITH, JALR: begin
                 imm_out = {{20{instruction[31]}}, instruction[31:20]};
             end
 
-            // --------------------------------------------------
+      
             // S-type: Store (sw, sh, sb)
             // imm[11:5] = instr[31:25], imm[4:0] = instr[11:7]
-            // --------------------------------------------------
+      
             STORE: begin
                 imm_out = {{20{instruction[31]}},
                            instruction[31:25],
                            instruction[11:7]};
             end
 
-            // --------------------------------------------------
+          
             // B-type: Branch (beq, bne, blt, bge)
             // Bits are scattered in the encoding; reassemble:
             //   imm[12]   = instr[31]
@@ -51,7 +51,7 @@ module immGen (
             //   imm[0]    = 0  (branches are always halfword-aligned)
             // FIX: previous version was missing the 1'b0 at bit[0],
             // causing every branch target to be 2 bytes short.
-            // --------------------------------------------------
+       
             BRANCH: begin
                 imm_out = {{19{instruction[31]}},
                            instruction[31],
@@ -61,22 +61,22 @@ module immGen (
                            1'b0};
             end
 
-            // --------------------------------------------------
+      
             // U-type: LUI, AUIPC
             // imm[31:12] = instr[31:12], lower 12 bits are 0
-            // --------------------------------------------------
+      
             LUI, AUIPC: begin
                 imm_out = {instruction[31:12], 12'b0};
             end
 
-            // --------------------------------------------------
+        
             // J-type: JAL
             //   imm[20]    = instr[31]
             //   imm[10:1]  = instr[30:21]
             //   imm[11]    = instr[20]
             //   imm[19:12] = instr[19:12]
             //   imm[0]     = 0
-            // --------------------------------------------------
+       
             JAL: begin
                 imm_out = {{11{instruction[31]}},
                            instruction[31],
